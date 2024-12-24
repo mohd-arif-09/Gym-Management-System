@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}
+">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About page</title>
+</head>
+
+<body>
+    <section class="vh-100" style="background-image: url('../Image/background.jpg'); background-size: cover; background-position: center;">
+        <div class="container">
+            <div class="row justify-content-center">
+
+
+                <div class="col-md-5 offset-md-3">
+
+                    <div class="my-card mt-3 center"   style="border-radius: 1rem; background :rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 7%, rgba(148,187,233,1) 69%);">
+
+                        <div th:if="${session.message}" th:classappend="${session.message.type}"
+                            class="alert alert-primary" role="alert">
+                            <p th:text="${session.message.content}"></p>
+                            <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+                            
+                        </div>
+
+
+                        <h1 class="text-center card-header mb-2" > Register Here As Admin !! </h1>
+
+                        <form novalidate action="" th:action="@{/do_register}" method="post" th:object="${user}">
+
+                            <div class="mb-3 form-group">
+                                <label for="formGroupExampleInput" class="form-label"> Your Name</label>
+
+                                <input type="text" name="name" class="form-control "
+                                 th:classappend="${#fields.hasErrors('name') ? 'is-invalid':''}" id="formGroupExampleInput"
+                                    placeholder="Enter here" required th:value="${user.name}" />
+
+                                    <div class="invalid-feedback" th:each="e : ${#fields.errors('name')}" th:text="${e}">
+                                       
+                                    </div>
+                            </div>
+
+                            <div class="mb-3 form-group">
+                                <label for="formGroupExampleInput" class="form-label"> Cotact Number</label>
+
+                                <input type="text" name="phone" class="form-control" 
+                                th:classappend="${#fields.hasErrors('phone') ? 'is-invalid':''}" id="formGroupExampleInput"
+                                    placeholder="Enter here" required th:value="${user.phone}" />
+
+                                    <div class="invalid-feedback" th:each="e : ${#fields.errors('phone')}" th:text="${e}">
+                                       
+                                    </div>
+                                    
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput2" class="form-label"> Your Email</label>
+
+                                <input type="text" name="email" class="form-control"
+                                th:classappend="${#fields.hasErrors('email') ? 'is-invalid':''}" id="formGroupExampleInput2"
+                                    placeholder="Enter here" required th:value="${user.email}" />
+                                    <div class="invalid-feedback" th:each="e : ${#fields.errors('email')}" th:text="${e}">
+                                       
+                                    </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput2" class="form-label"> Your Password</label>
+
+                                <input type="text" name="password" class="form-control" id="formGroupExampleInput2"
+                                    placeholder="Enter strong password">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput2" class="form-label"> Address </label>
+
+                                <textarea class="form-control" name="address" rows="5" id="formGroupExampleInput2"
+                                    placeholder="Enter your Address " th:text="${user.address}">
+                        </textarea>
+                            </div>
+
+                            <div class="form-group form-check">
+                                <input type="checkbox" name="agreement" class="form-check-input" id="agreement" />
+                                <label for="agreement"> Accept terms and conditions</label>
+
+                            </div>
+
+                            <div class="container text-center">
+                                <button type="submit" class="btn bg-primary text-white"> Submit</button>
+
+                                <button type="reset" class="btn btn-warning"> Reset</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

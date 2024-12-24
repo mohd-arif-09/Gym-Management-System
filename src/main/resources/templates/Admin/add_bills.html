@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{Admin/base::layout(~{::section})}
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About page</title>
+</head>
+<body>
+    <section>
+        <div class="card me-3 ms-3">
+            <div class="card-body">
+    
+            <h1 class="text-center"> Add Bill </h1>
+            
+            <div class="container-fluid mt">
+            <div class="row justify-content-center">
+            <div class="col-md-8 offset-md-2">
+    
+    
+             <form action="#" th:object="${bill}" 
+             enctype="multipart/form-data" method="post"
+             th:action="@{/admin/process-bill/{memid}(memid=${memid})}"
+             class="mt-3">
+
+             <div class="row justify-content-end">
+             <div class="col-auto mb-3" style="max-width: 150px;">
+              <input required type="date" class="form-control" 
+              name="billingDate"  placeholder=" Enter the start date">
+            </div>
+             </div>
+            
+             <div class="input-group">
+                <div class="input-group-prepand">
+                    <div class="input-group-text ms-2">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                </div>
+                 <input required type="text" readonly id="name" name="name"
+                 th:value="${member.name}" placeholder="Enter name here" class="form-control"/>
+             </div>
+    
+    
+             <div class="input-group mt-3">
+                <div class="input-group-prepand">
+                    <div class="input-group-text ms-2">
+                        <i class="fa-solid fa-at"></i>
+                    </div>
+                </div>
+                 <input required type="text" readonly th:value="${member.email}"  id="email" name="email"
+                   placeholder="Enter email here" class="form-control"/>
+             </div>
+    
+    
+             <div class="input-group mt-3">
+                <div class="input-group-prepand">
+                    <div class="input-group-text ms-2">
+                      <i class="fa-solid fa-indian-rupee-sign"></i>
+                    </div>
+                </div>
+                 <input required type="number" id="amount" name="amount"
+                   placeholder="Enter amount here" class="form-control"/>
+             </div>
+                 
+              <div class="input-group mt-3">
+                <div class="input-group-prepand">
+                    <div class="input-group-text ms-2">
+                      <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+                </div>
+                <label for="startingDate" class="form-label me-2 ms-2"> Enter Starting Date: </label>
+                 <input required type="date" id="startingDate" name="startingDate"
+                   placeholder="Enter start date here" class="form-control me-4"/>
+             </div>
+                 
+                  
+             <div class="input-group mt-3">
+              <div class="input-group-prepand">
+                  <div class="input-group-text ms-2">
+                    <i class="fa-solid fa-calendar-days"></i>
+                  </div>
+              </div>
+              <label for="endDate" class="form-label me-2 ms-2"> Enter End Date: </label>
+               <input required type="date" id="endDate" name="endDate"
+                 placeholder="Enter end date here" class="form-control me-5"/>
+           </div>
+               
+                
+           <div class="input-group mt-3">
+            <div class="input-group-prepand">
+                <div class="input-group-text ms-2">
+                  <i style='font-size:18px' class='fas'>&#xf253;</i>
+                </div>
+               
+            </div>
+          
+             <input required type="text" id="duration" name="duration"
+               placeholder="Enter duration here" class="form-control"/>
+         </div>
+             
+              
+              
+                <div class="input-group mt-3">
+                  <div class="input-group-prepand">
+                      <div class="input-group-text ms-2">
+                        <i>&#10004;</i>
+                      </div>
+                  </div>
+                <label for="cars"> Choose Paid Status </label>
+                <select name="paid" id="paid">
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+                </div>
+            
+                  
+              <div class="container text-center mt-3 mb-3">
+                <button class="btn btn-outline-primary"> Save Bill</button>
+              </div>
+    
+               </form>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{Member/base::layout(~{::section})}
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Bill Detail </title>
+</head>
+<body>
+    <section  >
+        <div class="card me-5 ms-5 mt-3" th:if="${bills}">
+          
+            <div class="card-body" >
+                <div class="container text-center">
+                    
+                    <div th:each="bill : ${bills}">
+                    <img src="../Image/bill.jpg" style="height: 150px; width: 150px;"  alt="profile_photo" class="mt-2">
+              <h3 class="ms-3"> <span th:text="${#strings.toUpperCase(bill.name)}"></span></h3>
+
+              <table id="custom-table">
+                <thead>
+                  <tr>
+                    <th scope="col">#ID</th>
+                    <td scope="col"> <span th:text="${bill.billid}"></span> </td>
+                   </tr> 
+                </thead>
+                <tbody>
+
+                    <tr> 
+                        <th scope="row" >Billing Date </th>
+                        <td> <span th:text="${#dates.format(bill.BillingDate, 'dd-MM-yyyy')}"></td>
+                      </tr>
+
+                  <tr> 
+                    <th scope="row" >Name</th>
+                    <td> <span th:text="${bill.name}"></td>
+                  </tr>
+                
+                  <tr> 
+                    <th scope="row" >Email</th>
+                    <td>
+                       <span th:text="${bill.email}"></td>
+                  </tr>
+
+                  <tr> 
+                    <th scope="row" >Amount</th>
+                    <td> <span th:text="${bill.amount}"></td>
+                  </tr>
+                
+                  <tr> 
+                    <th scope="row" >Duration</th>
+                    <td> <span th:text="${bill.duration}"></td>
+                  </tr>
+
+                  <tr> 
+                    <th scope="row" >Starting Date </th>
+                    <td> <span th:text="${#dates.format(bill.StartingDate, 'dd-MM-yyyy')}"></td>
+                  </tr>
+
+                  
+                  <tr> 
+                    <th scope="row" >End Date </th>
+                    <td> <span th:text="${#dates.format(bill.EndDate, 'dd-MM-yyyy')}"></td>
+                  </tr>
+                  
+                  <tr> 
+                    <th scope="row" >Paid Status</th>
+                    <td> <span th:text="${bill.paid ? 'Yes' : 'No'}"></td>
+                  </tr>
+
+                </tbody>
+              </table>
+ 
+            </div>
+            </div>
+            </div>
+            </div>  
+            <h1 class="text-center p-3 bg-danger text-white " th:unless="${bills}">
+              You dont have permisson to see this contact</h1>
+    </section>
+</body>
+</html>

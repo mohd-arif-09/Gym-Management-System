@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{Admin/base::layout(~{::section})}
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User Dashboard </title>
+</head>
+<body>
+    <section>
+        <div class="card me-2 ms-2">
+            <div class="card-body">
+    
+            <h1 class="text-center">Update Bills Details </h1>
+            
+            <div class="container-fluid mt">
+            <div class="row justify-content-center">
+            <div class="col-md-8 offset-md-2">
+    
+    
+             <form action="#" th:object="${bill}" 
+             enctype="multipart/form-data" method="post"
+             th:action="@{/admin/process-update-bill/{billid}(billid=${bill.billid})}"
+             class="mt-3">
+
+             <input type="hidden" th:value="${bill.billid}" name="billid"/>
+
+             <div class="row justify-content-end">
+                <div class="col-auto mb-3" style="max-width: 150px;">
+                 <input required type="date" th:value="${bill.billingDate}" class="form-control" 
+                 name="billingDate"  placeholder=" Enter the start date">
+               </div>
+                </div>
+    
+             <div class="input-group">
+                <div class="input-group-prepand">
+                    <div class="input-group-text ms-2">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                </div>
+                 <input required readonly th:value="${bill.name}" type="text" id="name" name="name"
+                   placeholder="Enter name here" class="form-control"/>
+             </div>
+    
+    
+             <div class="input-group mt-3">
+                <div class="input-group-prepand">
+                    <div class="input-group-text ms-2">
+                        <i class="fa-solid fa-at"></i>
+                    </div>
+                </div>
+                 <input required readonly th:value="${bill.email}" type="text" id="email" name="email"
+                   placeholder="Enter email here" class="form-control"/>
+             </div>
+    
+    
+             <div class="input-group mt-3">
+                <div class="input-group-prepand">
+                    <div class="input-group-text ms-2">
+                      <i class="fa-solid fa-indian-rupee-sign"></i>
+                    </div>
+                </div>
+                 <input required th:value="${bill.amount}" type="number" id="amount" name="amount"
+                   placeholder="Enter amount here" class="form-control"/>
+             </div>
+                 
+                  
+                 <div class="row gy-2 gx-3 align-items-center me-5 mt-3">   
+                <div class="col-auto ">
+                  <input required th:value="${bill.startingDate}" type="date" class="form-control" 
+                  id="autoSizingInput" name="startingDate" placeholder=" Enter the start date">
+                </div>
+    
+                <div class="col-auto">
+                  <div class="input-group">
+                    <input required th:value="${bill.endDate}" type="date" class="form-control" 
+                    id="autoSizingInputGroup" name="endDate" placeholder="Enter the end date">
+                  </div>
+                </div>
+    
+                <div class="col-auto">
+                  <div class="input-group">
+                    <input required th:value="${bill.duration}" type="text" class="form-control" 
+                    id="autoSizingInputGroup" name="duration" placeholder="Enter the duration">
+                  </div>
+                </div>
+            </div>
+
+            <div class="input-group mt-3">
+              <div class="input-group-prepand">
+                  <div class="input-group-text ms-2">
+                    <i>&#10004;</i>
+                  </div>
+              </div>
+
+            <label for="paid">Choose Paid Status</label>
+        <select id="paid" th:field="*{paid}">
+            <option value="true" th:selected="${bill.paid == 'true'}">Yes</option>
+            <option value="false" th:selected="${bill.paid == 'false'}">No</option>
+        </select>
+    </div>
+                  
+              <div class="container text-center mt-3 mb-3">
+                <button class="btn btn-outline-primary"> Save Member</button>
+              </div>
+    
+               </form>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+    </section>
+</body>
+</html>

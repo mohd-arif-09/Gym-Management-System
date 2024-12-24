@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{Admin/base::layout(~{::section})}
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User Dashboard </title>
+</head>
+<body>
+    <section >
+          <div class="conatiner me-4 ms-4">
+            <div class="card text-center">
+                <div class="card-body">
+
+                    <img src="../Image/profile.png" style="height: 150px; width: 150px;"  alt="profile_photo" class="mt-2">
+
+                    <h1 class="text-center mt-2" > <span th:text="${#strings.toUpperCase(user.name)}"></span></h1>
+                <table id="custom-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#ID</th>
+                        <td scope="col"> <span th:text="${user.id}"></span> </td>
+                       </tr> 
+                    </thead>
+                    <tbody>          
+                      <tr> 
+                        <th scope="row" >Email</th>
+                        <td> <span th:text="${user.email}"></td>
+                      </tr>
+    
+                      <tr> 
+                        <th scope="row" >Phone</th>
+                        <td> <span th:text="${user.phone}"></td>
+                      </tr>
+
+                      <tr> 
+                        <th scope="row" >Role</th>
+                        <td> <span th:text="${user.role}"></td>
+                      </tr>
+                    
+                    
+                      <tr> 
+                        <th scope="row" >Address</th>
+                        <td> <span th:text="${user.address}"></td>
+                      </tr>
+    
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+
+    </section>
+</body>
+</html>

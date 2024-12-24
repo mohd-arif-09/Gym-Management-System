@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{Admin/base::layout(~{::section})}
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Member's List </title>
+</head>
+<body>
+    <section>
+       
+        <div class="card card-veiw me-3 ms-3 ">
+            <div class="card-body">
+                <h1 class="text-center"> Your Member's List</h1>
+
+                <!-- search box -->
+
+                <div class="search-container my-3 mb-3 mt-3">
+               <input onkeyup="search()" id="search-input" type="text" class="form-control"
+                placeholder="Search your members"/>
+                <div class="search-result">
+                  <!-- search result here -->
+
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table >
+                    <thead>
+                      <tr>
+                        <th scope="col">Sr.No </th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Bills</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead> 
+                    <tbody>
+                      <tr th:each="c , stat : ${member}">
+                        <td scope="row" th:text="${(currentPage * 5)+ stat.index+1}"></td>
+                        <td th:text="${c.name}"></td>
+                        <td >
+                            <a href="" th:href="@{'/admin/'+${c.memid}+'/member'}">
+                            <span th:text="${c.email}"></span>
+                        </a>
+                        </td>
+                        <td  th:text="${c.phone}"></td>
+                        <td th:text="${c.duration}" > 
+                        </td> 
+
+                        <td >
+                          <a href="" th:href="@{'/admin/member-bill/'+${c.memid}}">
+                          <span> Create Bill </span>
+                      </a>
+                      </td>
+
+
+                        <td>
+                          <div style="display: flex; gap: 8px; align-items: center;">
+
+                            
+                           <form method="post" th:action="@{'/admin/update-member/'+${c.memid}}" >
+                            <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-user-edit"></i></button>
+                          </form> 
+                          
+                            <a href="#"  th:onclick="|deleteAlert(${c.memid})|" class="btn btn-danger btn-sm">
+                              <i class="fas fa-trash"></i></a>
+  
+                        </div>
+                        </td>
+                      </tr>
+                    
+                    </tbody>
+                  </table>
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li th:if="${currentPage !=0}" class="page-item">
+                        <a th:href="@{'/admin/show-member/'+${currentPage-1}}" class="page-link" href="#">Previous</a></li>
+                      
+                      <li th:classappend="${currentPage==i-1?'active':''}"
+                       th:each="i:${#numbers.sequence(1,totalPages)}"class="page-item">
+                       <a th:href="@{'/admin/show-member/'+${i-1}}" class="page-link" href="#"><span th:text="${i}">
+
+                       </span></a></li>
+        
+                      <li th:if="${currentPage+1!=totalPages}" class="page-item">
+                        <a th:href="@{'/admin/show-member/'+${currentPage+1}}" class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+
+              </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

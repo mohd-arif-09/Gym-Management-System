@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{Admin/base::layout(~{::section})}
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User Dashboard </title>
+</head>
+<body>
+    <section>
+        <div class="card me-2 ms-2">
+            <div class="card-body">
+    
+            <h1 class="text-center">Update Member's Details </h1>
+            
+            <div class="container-fluid mt">
+            <div class="row justify-content-center">
+            <div class="col-md-8 offset-md-2">
+    
+    
+             <form action="#" th:object="${member}" 
+             enctype="multipart/form-data" method="post"
+             th:action="@{/admin/process-update}"
+             class="mt-3">
+
+             <input type="hidden" th:value="${member.memid}" name="memid"/>
+    
+             <div class="input-group">
+                <div class="input-group-prepand">
+                    <div class="input-group-text ms-2">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                </div>
+                 <input required th:value="${member.name}" type="text" id="name" name="name"
+                   placeholder="Enter name here" class="form-control"/>
+             </div>
+    
+    
+             <div class="input-group mt-3">
+                <div class="input-group-prepand">
+                    <div class="input-group-text ms-2">
+                        <i class="fa-solid fa-at"></i>
+                    </div>
+                </div>
+                 <input required th:value="${member.email}" type="text" id="email" name="email"
+                   placeholder="Enter email here" class="form-control"/>
+             </div>
+    
+    
+             <div class="input-group mt-3">
+                <div class="input-group-prepand">
+                    <div class="input-group-text ms-2">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                </div>
+                 <input required th:value="${member.phone}" type="number" id="phone" name="phone"
+                   placeholder="Enter phone here" class="form-control"/>
+             </div>
+                 
+               
+                <div class="input-group mt-3">
+                  <div class="input-group-prepand">
+                      <div class="input-group-text ms-2">
+                          <i style='font-size:18px' class='fas'>&#xf253;</i>
+                      </div>
+                  </div>
+                  <input required type="text" th:value="${member.duration}" id="duration" name="duration"
+                    placeholder="Enter duration here" class="form-control"/>
+              </div>
+                          
+               
+    
+             <div class="input-group mt-3 ">
+                <div class="input-group-prepand">
+                    <div class="input-group-text ms-2">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
+                </div>
+                <textarea required th:text="${member.address}" class="form-control" name="address" rows="5" id="formGroupExampleInput2"
+                    placeholder="Enter your Address ">
+        </textarea>
+            </div>
+                  
+              <div class="container text-center mt-3 mb-3">
+                <button class="btn btn-outline-primary"> Save Member</button>
+              </div>
+    
+               </form>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,233 @@
+body {
+    background-image: url('../Image/background.jpg') ;  /* Correct way to specify the image */
+    background-size: cover;                             /* Ensures the image covers the entire background */
+    background-position: center;                        /* Centers the image */
+    background-repeat: no-repeat;                       /* Prevents image repeat */
+    background-attachment: fixed;                       /* Keeps the image fixed when scrolling (optional) */
+}
+
+/* Media Query for smaller devices (like phones) */
+@media (max-width: 768px) {
+    body {
+        background-size: cover;     /* Ensures the image still covers the entire background */
+        background-position: center; /* Centers the image on small screens */
+
+    }
+}
+
+/* Additional adjustments for very small screens (like ultra small phones) */
+@media (max-width: 400px) {
+    body {
+        background-size: cover; /* Ensures the image covers the entire background */
+        background-position: center;  /*Keeps the image centered */
+
+    }
+}
+
+
+.card {
+    background: rgba(199, 199, 199, 0.5); /* Increase transparency */
+    max-width: 900px; /* Limit card width */
+    
+    margin: auto; /* Center the card horizontally and vertically */
+    border-radius: 10px; /* Add rounded corners to the card */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add a soft shadow for better visibility */   
+}
+
+.card-veiw {
+    background: rgba(199, 199, 199, 0.5); /* Increase transparency */
+    max-width: 1200px; /* Limit card width */
+    
+    margin: auto; /* Center the card horizontally and vertically */
+    border-radius: 10px; /* Add rounded corners to the card */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add a soft shadow for better visibility */
+   
+}
+
+.nav-text .nav-link {
+    font-weight: bold;
+    text-decoration: none; /* Optional: remove underline */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-text .nav-link:hover {
+    color: #121114; /* Hover color */
+    transform: scale(1.1); /* Optional: slight zoom effect */
+    text-decoration: underline; /* Optional: underline on hover */
+}
+
+.bg-primary {
+    background: linear-gradient(135deg, #9c7ee8, #d3b4f2) !important;
+}
+
+.banner{
+    width:100%;
+    height:95vh;
+    left: 20%;
+    background-image: url(../Image/home.jpg);
+    background-position: center;
+    background-size:cover ;
+    color:black;
+}
+.my-card{
+    padding: 20px;
+    background: #FFFFFF;   
+}
+.invalid-user-message{
+    margin-top: 10px;
+    color: red;
+    text-align: center;
+}
+.logout-message{
+    margin-top: 10px;
+    color: green;
+    text-align: center;
+}
+
+
+/*  sidebar style */
+
+@media only screen and (max-width:600px){
+    .sidebar{
+        display: none;
+        width: 80% !important;
+        background: white;
+        height: 100vh;
+        position: fixed;
+        padding-top: 20px;
+    }
+    .content{
+        margin-left: 0%!important;
+    }
+}
+.sidebar{
+    width: 18%;
+    background: rgb(62, 58, 58);
+    height: 100%;
+    position: fixed;
+    padding-top: 45px;
+    z-index: 99999999999999999999;
+}
+.sidebar a{
+    display: block;
+    width: 100%;
+    padding: 10px 25px;
+    text-decoration: none;
+    color:white ;
+}
+.sidebar a:hover{
+    background: #6244da;
+}
+.sidebar .divider{
+    height: .5px;
+    width: 100%;
+    background: #e2e2e2;
+    margin-top: 10px;
+}
+.content{
+    margin-left: 20%;
+}
+.sidebar .crossBtn{
+    position: absolute;
+    top: 0;
+    right: 35px;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+/* search css */
+.search-container{
+    position: relative;
+}
+.search-result{
+    position: absolute;
+    background: white;
+    width: 100%;
+    padding: 10px;
+    border:1px solid gray;
+    display: none;
+
+}
+
+
+/* table style  */
+h1 {
+    color: #C21807;
+    margin-bottom: 20px;
+    
+}
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow-x: auto;
+
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #C21807;
+    color: white;
+    
+}
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+#custom-table td {
+    background-color: #31e3d7;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+  
+}
+
+/* Responsive Design for table */
+@media (max-width: 1024px) { /* For tablets and smaller laptops */
+    table {
+        font-size: 14px; /* Adjust font size for better readability */
+    }
+    th, td {
+        padding: 10px; /* Adjust padding for a compact layout */
+    }
+    
+}
+
+@media (max-width: 768px) { /* For phones and small tablets */
+    table {
+        font-size: 12px; /* Smaller font size for phones */
+    }
+    th, td {
+        padding: 8px; /* Further reduce padding */
+    }
+}
+
+@media (max-width: 400px) { /* For very small devices */
+    table {
+        font-size: 10px; /* Smallest font size for compact view */
+    }
+    th, td {
+        padding: 5px; /* Minimal padding for very small screens */
+    }
+    th {
+        font-size: 12px; /* Adjust header font size for better fit */
+    }
+    table {
+        display: block; /* Ensure the table becomes scrollable */
+        overflow-x: auto; /* Horizontal scrolling for small screens */
+    }
+    tr {
+        display: block; /* Stack rows for smaller screens */
+    }
+    th, td {
+        display: block; /* Stack cells vertically */
+        width: 100%; /* Make cells span the full width */
+    }
+}  
+

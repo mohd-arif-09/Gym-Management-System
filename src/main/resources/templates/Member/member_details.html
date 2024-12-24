@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{Member/base::layout(~{::section})}
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User Dashboard </title>
+</head>
+<body>
+    <section>
+        <div class="card me-5 ms-5 mt-3" th:if="${member}">
+          
+            <div class="card-body " >
+                <div class="container text-center">
+
+                    <img src="../Image/profile.png" style="height: 150px; width: 150px;"  alt="profile_photo" class="mt-2">
+
+              <h3 class="ms-3"> <span th:text="${#strings.toUpperCase(member.Name)}"></span></h3>
+
+              <table id="custom-table">
+                <thead>
+                  <tr>
+                    <th scope="col">#ID</th>
+                    <td scope="col"> <span th:text="${member.memid}"></span> </td>
+                   </tr> 
+                </thead>
+                <tbody>
+                  <tr> 
+                    <th scope="row" >Name</th>
+                    <td> <span th:text="${member.name}"></td>
+                  </tr>
+                
+                  <tr> 
+                    <th scope="row" >Email</th>
+                    <td>
+                       <span th:text="${member.email}"></td>
+                  </tr>
+
+                  <tr> 
+                    <th scope="row" >Phone</th>
+                    <td> <span th:text="${member.phone}"></td>
+                  </tr>
+
+                  <tr> 
+                    <th scope="row" >Password </th>
+                    <td> <span th:text="${member.password}"></td>
+                  </tr>
+
+                  <tr> 
+                    <th scope="row" >Role </th>
+                    <td> <span th:text="${member.role}"></td>
+                  </tr>
+
+                
+                  <tr> 
+                    <th scope="row" >Duration</th>
+                    <td> <span th:text="${member.duration}"></td>
+                  </tr>
+
+                  <tr> 
+                    <th scope="row" >Address</th>
+                    <td> <span th:text="${member.address}"></td>
+                  </tr>
+
+                  
+
+                </tbody>
+              </table>
+ 
+            </div>
+            </div>
+
+            </div>  
+            <h1 class="text-center p-3 bg-danger text-white " th:unless="${member}">
+              You dont have permisson to see this contact</h1>
+    </section>
+</body>
+</html>

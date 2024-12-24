@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{Admin/base::layout(~{::section})}
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Admin Dashboard </title>
+</head>
+<body >
+    <section >
+     
+     <div class="container" >
+        <div class="card" >
+            <div class="card-body my-5">
+                  <div class="container text-center">
+
+                    <h1 >
+                     Welcome into Admin Panel
+                    </h1>
+
+                    <img src="../Image/profile.png" style="height: 150px; width: 150px;"  alt="profile_photo" class="mt-2">
+                  </div>
+
+                  <h1 class="text-center mt-3 text-success font-italic mb-2">
+                    Start adding your members..........
+                  </h1>
+                  <div class="text-center">
+                  <a th:href="@{/admin/add-member}" class="btn btn-primary mt-4 btn-block ms-2 "> Add New Member </a>
+                  <a th:href="@{/admin/show-member/0}" class="btn btn-primary mt-4 btn-block text-upprcase me-2"> Veiw Members </a>
+                  <a th:href="@{/admin/show-bills/0}" class="btn btn-primary mt-4 btn-block text-upprcase me-2"> Veiw Bills </a>
+                </div>
+            </div>
+        </div>
+     </div>
+   
+    </section>
+</body>
+</html>
