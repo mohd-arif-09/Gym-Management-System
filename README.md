@@ -20,7 +20,7 @@ the system offers functionalities for both administrators and members.
 1. **Admin Registration & Login** 
 - Admins can register themselves and log in using their email and password.
 ![login page](https://github.com/user-attachments/assets/7294164e-51d8-4a90-a915-317422041fdb)
-70-9728-117f5cd234a9)
+
 
 2. **Member Management** 
 - Add new members.
@@ -44,7 +44,7 @@ the system offers functionalities for both administrators and members.
 ![update bills](https://github.com/user-attachments/assets/108b8dfd-c462-475c-b0c7-47e6b66a2ca1)
  
 - Delete bills.
-![bill list](https://github.com/user-attachments/assets/c98c20db-679d-4f
+![bill list](https://github.com/user-attachments/assets/0e7711dc-792f-449e-946b-a58cab62852d)
    
 4. **Admin Profile** 
 - View admin details in the profile section.
